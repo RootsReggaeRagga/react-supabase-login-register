@@ -56,7 +56,7 @@ function App() {
       if (error) throw error;
       setCountries(data);
       setError(null);
-    } catch (error) {
+    } catch {
       setError("Nie masz uprawnień do wyświetlenia tych danych");
       setCountries([]);
     }
