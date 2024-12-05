@@ -1,5 +1,6 @@
 # Supabase
 src/supabaseClient.js
+src/supabaseClient copy.js
 
 # Dependencies
 node_modules

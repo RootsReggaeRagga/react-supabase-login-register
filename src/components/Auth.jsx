@@ -80,6 +80,9 @@ function Auth() {
             const { error: signUpError, data } = await supabase.auth.signUp({
                 email,
                 password,
+                options: {
+                    emailRedirectTo: 'https://react-supabase.bgrela.dev'
+                }
             });
 
             if (signUpError) throw signUpError;
