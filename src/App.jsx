@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Auth from './components/Auth';
 import { supabase } from './supabaseClient';
+import UsersList from './components/UsersList';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -108,17 +109,23 @@ function App() {
             Tylko administratorzy mają dostęp do tych danych.
           </div>
         ) : (
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800">Lista krajów</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {countries.map((country) => (
-                <div
-                  key={country.name}
-                  className="bg-gray-50 p-4 rounded-md shadow-sm hover:shadow-md transition-shadow duration-200"
-                >
-                  {country.name}
-                </div>
-              ))}
+          <div className="space-y-6">
+            {/* Lista użytkowników */}
+            <UsersList />
+
+            {/* Lista krajów */}
+            <div className="bg-white shadow rounded-lg p-6">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">Lista krajów</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {countries.map((country) => (
+                  <div
+                    key={country.name}
+                    className="bg-gray-50 p-4 rounded-md shadow-sm hover:shadow-md transition-shadow duration-200"
+                  >
+                    {country.name}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}
